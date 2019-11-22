@@ -19,7 +19,7 @@ from .views import displayProduct, myProducts
 
 urlpatterns = [
     path('pppp/<str:id>', displayProduct),
-    path ('aaaa', myProducts)
+    path ('products', myProducts)
 
 
 ]

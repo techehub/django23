@@ -6,56 +6,24 @@ from django.template import loader
 
 from django.http import HttpResponse
 
-data = {
-    "1": {
-        "id" : "1",
-        "name": "IPhone",
-        "desc": "This is iPhone 6 smart phone",
-        "price": 55000
-    },
-    "2": {
-        "id" : "2",
-        "name": "OPPO",
-        "desc": "This is OPPO A5 smart phone",
-        "price": 23000
-    },
-    "3": {
-        "id" :"3",
-        "name": "SAMSUNG",
-        "desc": "This is SAMSUNG smart phone",
-        "price": 25000
-    }
-}
+from .models import Product
 
 def displayProduct(request,id):
 
     template=loader.get_template("product.html")
+    product = Product.objects.get (id=id)
 
+    data = {"id": product.id,
+            "name": product.name,
+            "desc": product.desc,
+            "price": product.price}
 
-    res = template.render(data[id], request)
+    res = template.render(data, request)
     return HttpResponse(res)
 
 def myProducts(request):
     template = loader.get_template("myproducts.html")
-
-    mydata = {"products":  [{
-        "id" : "1",
-        "name": "IPhone",
-        "desc": "This is iPhone 6 smart phone",
-        "price": 55000
-    },
-        {
-            "id": "2",
-            "name": "OPPO",
-            "desc": "This is OPPO A5 smart phone",
-            "price": 23000
-        },
-        {
-            "id": "3",
-            "name": "SAMSUNG",
-            "desc": "This is SAMSUNG smart phone",
-            "price": 25000
-        }
-                            ]}
+    products = Product.objects.all()
+    mydata = {"products":  products}
     res = template.render(mydata, request)
     return HttpResponse(res)
