@@ -18,8 +18,8 @@ from django.urls import path,include
 from .views import displayProduct, myProducts
 
 urlpatterns = [
-    path('product/<str:id>', displayProduct),
-    path ('myProducts', myProducts)
+    path('pppp/<str:id>', displayProduct),
+    path ('aaaa', myProducts)
 
 
 ]
