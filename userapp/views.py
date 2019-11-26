@@ -3,6 +3,7 @@ from django.template import loader
 # Create your views here.
 from django.http import HttpResponse
 from .forms import ContactForm
+from .models import ContactUs
 
 
 def home(request):
@@ -21,3 +22,13 @@ def contactPage(request):
     data= {"contactForm": myform}
     res=template.render ( data, request)
     return  HttpResponse(res)
+
+def saveContact(req):
+    contact=ContactUs()
+    contact.name=req.GET['name']
+    contact.email= req.GET['email']
+    contact.phone = req.GET['phone']
+    contact.mobile = req.GET['mobile']
+    contact.save()
+
+    return HttpResponse("Contact Saved successfully")
