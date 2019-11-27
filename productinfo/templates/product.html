@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "myweb.html" %}
 
+{% block mytitle %}
+
+    Product page for {{name}}
+
+{%  endblock %}
+
+{%  block main %}
 
 This is my product list page from template
 
@@ -32,5 +33,4 @@ This is my product list page from template
 </table>
 
 
-</body>
-</html>
+{%  endblock %}

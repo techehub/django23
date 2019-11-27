@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "myweb.html" %}
+
+{% block mytitle %}
+
+    Product List Page
+
+{%  endblock %}
+
+
+{%  block main %}
 
 <h1>These are my products </h1>
 
@@ -27,5 +30,5 @@
 
 </table>
 
-</body>
-</html>
+
+{% endblock %}

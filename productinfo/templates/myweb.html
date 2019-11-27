@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block mytitle %}
+          My APP
+
+        {%  endblock %}
+
+    </title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>
+            <h1>Header</h1>
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <td>
+            {%  block main %}
+
+            Main content
+
+            {% endblock  %}
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            <h1>Footer </h1>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
