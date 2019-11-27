@@ -6,7 +6,9 @@
 </head>
 <body>
 
-<form action="/user/saveContact">
+<form action="/user/saveContact" method="POST">
+
+    {% csrf_token %}
 
  <table>
 
