@@ -13,7 +13,7 @@ This is my product list page from template
 
 <table border="1">
 
-
+<form action="/addToCart">
     <tr>
        <td>Name</td>
         <td>{{name}}</td>
@@ -29,6 +29,23 @@ This is my product list page from template
         <td>{{price}}</td>
     </tr>
 
+     <tr>
+       <td>Qty</td>
+
+        <td>
+
+            <input type="text" name="qty">
+            <input type="hidden" name="pid" value="{{id}}">
+
+        </td>
+    </tr>
+
+    <tr>
+       <td></td>
+        <td><input type="submit" value="Add To Cart"></td>
+    </tr>
+
+    </form>
 
 </table>
 
