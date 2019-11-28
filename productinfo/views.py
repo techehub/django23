@@ -52,7 +52,13 @@ def viewCart (request):
 
         items= []
         for x,y in cartItems.items():
-            items.append ( {"id": x, "qty": y})
+            p =Product.objects.get(id=x)
+            items.append ({"id": x,
+                            "qty": y,
+                            "name": p.name ,
+                            "price": p.price,
+                            "total" : p.price * int(y)
+                            })
 
         data ={"products": items}
 
