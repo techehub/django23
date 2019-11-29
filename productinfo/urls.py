@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import displayProduct, myProducts, addToCart, viewCart
+from .views import displayProduct, myProducts, addToCart, viewCart,writeCookie,readCookie
+from .classview import MyView
 
 urlpatterns = [
-    path('pppp/<str:id>', displayProduct),
+    path ('pppp/<str:id>', displayProduct),
     path ('products', myProducts),
     path ('addToCart', addToCart),
-    path ('viewCart', viewCart)
-
+    path ('viewCart', viewCart),
+    path('writeCookie', writeCookie),
+    path('readCookie', readCookie),
+    path ('myview', MyView.as_view())
 
 ]

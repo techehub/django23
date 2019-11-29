@@ -66,3 +66,20 @@ def viewCart (request):
         return HttpResponse(res)
     else :
         return HttpResponse("Your Cart is Empty")
+
+
+def writeCookie (req):
+
+    res = HttpResponse("Testing")
+    res.set_cookie("TEST_COOKIE", "VIJEESH")
+    res.set_cookie("TEST_EMAIL", "vijeesh.tp@expertzlab.com")
+    return res;
+
+
+def readCookie (req):
+
+    val = req.COOKIES['TEST_EMAIL']
+    res = HttpResponse(val)
+    return res
+
+
