@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import displayProduct, myProducts, addToCart, viewCart,writeCookie,readCookie
+from .views import displayProduct, myProducts, addToCart,\
+    viewCart,writeCookie,readCookie, getData, getDataPage
 from .classview import MyView
 
 urlpatterns = [
@@ -25,6 +26,8 @@ urlpatterns = [
     path ('viewCart', viewCart),
     path('writeCookie', writeCookie),
     path('readCookie', readCookie),
-    path ('myview', MyView.as_view())
+    path ('myview', MyView.as_view()),
+    path ('productdata', getData ),
+    path('data', getDataPage),
 
 ]

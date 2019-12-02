@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function hello (){
+            var x= document.getElementById("data");
+            x.innerHTML = "<h1> Hello All !!! </h1>";
+        }
+
+        function clearData (){
+            var x= document.getElementById("data");
+            x.innerHTML = "";
+        }
+
+    </script>
+</head>
+<body>
+
+This is my data page
+
+<div id="data"></div>
+<button onclick="hello()" > Click Me</button>
+<button onclick="clearData()" > Clear Me</button>
+
+
+</body>
+</html>

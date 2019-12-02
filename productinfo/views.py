@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.template import loader
 
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 
 from .models import Product
 
@@ -81,5 +81,21 @@ def readCookie (req):
     val = req.COOKIES['TEST_EMAIL']
     res = HttpResponse(val)
     return res
+
+def getDataPage(req):
+    template = loader.get_template("data.html")
+    res = template.render({}, req)
+    return HttpResponse(res)
+
+
+def getData (request):
+
+    products= ["OPPO", "VIVO", "Samsung"]
+    prices= [1000,20000,30000]
+    data = {
+        "products": products,
+        "prices": prices
+    }
+    return JsonResponse(data)
 
 
