@@ -11,8 +11,14 @@
             xhttp.open("GET", "productdata", true);
 	        xhttp.onreadystatechange = function() {
 	        if (this.readyState == 4 && this.status == 200) {
-                 var x= document.getElementById("data");
-	    	     x.innerHTML= this.responseText;
+                 var x= document.getElementById("product");
+                 var y= document.getElementById("price");
+
+                 var data = JSON.parse (this.responseText);
+
+	    	     x.innerHTML= data.products;
+	    	     y.innerHTML= data.prices;
+
 
     	    }
 	      };
@@ -28,9 +34,13 @@
         }
 
         function clearData (){
-            var x= document.getElementById("data");
+            var x= document.getElementById("price");
             x.innerHTML = "";
+          var y= document.getElementById("product");
+            y.innerHTML = "";
+
         }
+
 
     </script>
 </head>
@@ -38,7 +48,8 @@
 
 This is my data page
 
-<div id="data"></div>
+<div id="product"></div>
+<div id="price"></div>
 <button onclick="getData()" > Click Me</button>
 <button onclick="clearData()" > Clear Me</button>
 
